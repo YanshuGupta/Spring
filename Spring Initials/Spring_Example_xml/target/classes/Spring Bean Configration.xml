@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+  <!-- Other bean definitions-->
+  <bean id="cust" class="com.cg.beans.Customer">
+  	<constructor-arg value="Yanshu"/>
+  	<constructor-arg value="Gupta"/>
+  </bean>
+  
+  <bean id="cust1" class="com.cg.beans.Customer">
+  	<constructor-arg index="0" value="Yanshu"/>
+  	<constructor-arg index="1" value="Gupta"/>
+  </bean>
+  
+  <bean id="cust2" class="com.cg.beans.Customer">
+  	<constructor-arg type="String" value="Yanshu"/>
+  	<constructor-arg type="String" value="Gupta"/>
+  </bean>
+  
+  <bean id="cust3" class="com.cg.beans.Customer">
+  	<property name="firstName" value="Yanshu"/>
+  	<property name="lastName" value="Gupta"/>
+  </bean>
+ 
+  <bean id="person" class="com.cg.beans.Person">
+	<property name="name" value="YANSHU GUPTA"/>  
+  </bean>
+  <bean id="employee" class="com.cg.beans.Employee">
+  	<property name="person" ref="person"/>
+  </bean>
+  
+  <bean id="customerRepository" class="com.cg.dao.CustomerRepository"/>
+  <bean id="customerService" class="com.cg.service.CustomerService" autowire="byType"/>
+  
+    
+</beans>
